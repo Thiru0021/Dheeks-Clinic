@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    /* Explicitly strips user-agent browser default gaps completely */
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+  }
+  
+  body {
+    color: #0A353C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  /* Layout-safe fade-in that won't ruin horizontal grids or vertical stacking */
+  @keyframes safeFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-premium-reveal {
+    animation: safeFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* ==========================================================================
+   HIGH-END DYNAMIC HOVER EFFECTS
+   ========================================================================== */
+
+/* Cards lift smoothly away from the container without pushing elements */
+.hover-lift-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hover-lift-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(10, 53, 60, 0.2);
+}
+
+/* Secondary interactive shifts */
+.hover-lift-card-inverse {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hover-lift-card-inverse:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.12);
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F2F2EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #13646C;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0A353C;
+}
